@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript HTML DOM Example</title>
+</head>
+<body>
+
+    <h2 id="id01">JavaScript HTML DOM</h2> <!-- Corrected h2 tag placement -->
+
+    <p id="intro">Finding HTML Elements by Id</p>
+    <p>This example demonstrates the <b>getElementById</b> method.</p>
+    <p id="introd1">This example demonstrates the <b>getElementsByTagName</b> method.</p>
+    <p class="cls">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+    <p id="query1"><h3>querySelector returns the first matching HTML element.</h3></p>
+    <p id="query2"><h3>querySelectorAll returns all matching elements.</h3></p>
+
+    <!-- ✅ Fixed incorrect <img> tag syntax -->
+    <img id="img" src="smile.png">
+
+    <p id="demo"></p>
+
+    <script>
+        // Finding an element by ID
+        const element = document.getElementById("intro");
+
+        // Finding elements by tag name (returns a collection)
+        const tags = document.getElementsByTagName("p");
+
+        // Finding elements by class name (returns a collection)
+        const classes = document.getElementsByClassName("cls");
+
+        // Using querySelector and querySelectorAll
+        const querySingle = document.querySelector("p"); // Gets first <p>
+        const queryMultiple = document.querySelectorAll("p"); // Gets all <p> elements
+
+        // Fixing case-sensitive typo in `getElementById`
+        const changeContent = document.getElementById("id01"); 
+        changeContent.innerHTML = 
+            "DOM stands for Document Object Model. It represents a document as a tree structure, allowing JavaScript to access and manipulate HTML elements dynamically.";
+
+        // ✅ Fixing the image attribute change
+        document.getElementById("img").src = "landscape.jpg"; // Fixed syntax
+
+        // Updating innerHTML
+        document.getElementById("demo").innerHTML = 
+            "The text from the intro paragraph is: " + element.innerHTML;
+
+        document.getElementById("introd1").innerHTML = 
+            "The first paragraph text is: " + tags[0].innerHTML; // Access first element
+
+        document.querySelector(".cls").innerHTML = 
+            "This text is from the class-based paragraph: " + classes[0].innerHTML; // Access first element
+
+        document.getElementById("query1").innerHTML = 
+            "Using querySelector: " + querySingle.innerHTML;
+
+        document.getElementById("query2").innerHTML = 
+            "Using querySelectorAll (first <p>): " + queryMultiple[0].innerHTML;
+        //show current date
+        document.write(Date());//document write also return th html input streams
+        document.getElementById("id").innerHTML="Date:" +Date();    
+        
+    </script>
+
+</body>
+</html>
